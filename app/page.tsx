@@ -1,9 +1,18 @@
-import styles from './page.module.css'
+"use client"
 
-export default function Home() {
+import NavBar from "./components/TopNavBar"
+import BottomNavBar from "./components/BottomNavBar"
+import { Divider } from "@mui/material"
+
+
+const Home = () => {
   return (
-    <main className={styles.main}>
-<h5>Landing Page</h5>
+    <main >
+      <NavBar />
+      <Divider />
+      <BottomNavBar />
     </main>
   )
 }
+
+export default Home
