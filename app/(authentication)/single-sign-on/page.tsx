@@ -23,7 +23,7 @@ import InputLabel from '@mui/material/InputLabel';
 import { useState } from "react";
 import Box from '@mui/material/Box';
 
-const Login = () => {
+const SingleSignUp = () => {
     //const [forceError, setForceError] = useState("");
     //const message = useSelector((state) => state.auth.message);
 
@@ -158,5 +158,5 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default SingleSignUp;
 

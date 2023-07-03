@@ -204,7 +204,10 @@ const SignUp = () => {
                   alignItems="center"
                   sx={{ marginTop: 1 }}
                 >
-                  <FormControlLabel control={<Checkbox size="xsmsll" />} label="I agree to thr Terms & condition" />
+                  <FormControlLabel control={<Checkbox size="small" style={{
+                    width: 25,
+                    height: 25
+                  }} />} label="I agree to the Terms & condition" />
                   <Typography variant="body2" color="green">Strong</Typography>
                 </Grid>
 
