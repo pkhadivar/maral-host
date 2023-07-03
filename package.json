@@ -28,6 +28,7 @@
     "@types/node": "20.3.2",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
+    "mui-one-time-password-input": "^1.1.2",
     "next": "13.4.7",
     "react": "18.2.0",
     "react-device-detect": "^2.2.3",
