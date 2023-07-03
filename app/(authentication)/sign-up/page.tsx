@@ -22,13 +22,16 @@ import Image from "next/image";
 import { useState } from "react";
 import Box from '@mui/material/Box';
 
-const Login = () => {
+const SignUp = () => {
   //const [forceError, setForceError] = useState("");
   //const message = useSelector((state) => state.auth.message);
 
   const schema = yup.object().shape({
     email: yup.string().required("Email is required"),
     password: yup.string().required("Password is required"),
+    name: yup.string().required("Name is required"),
+    retypePassword: yup.string().required("Password is required"),
+
   });
 
   const { register, handleSubmit, control } = useForm({
@@ -85,7 +88,7 @@ const Login = () => {
           alignItems="center"
           sx={{ height: "100vh", minHeight: "500px" }}
         >
-          <Box sx={{ width: "578", height: "890", backgroundColor: "white", borderRadius: 10, p: 4 }}>
+          <Box sx={{ width: "578", height: "963", backgroundColor: "white", borderRadius: 10, p: 4 }}>
             <Grid item>
               <Grid
                 item
@@ -95,7 +98,7 @@ const Login = () => {
               //alignItems="center"
               >
                 <Typography component="h1" variant="h5" textAlign="left">
-                  <strong>Login</strong>
+                  <strong>Getting Started</strong>
                 </Typography>
                 <Typography
                   variant="body1"
@@ -105,8 +108,7 @@ const Login = () => {
                   mb={2}
                   mt={1}
                 >
-                  Welcome back! Please enter your
-                  detail
+                  Create an account to continue
                 </Typography>
               </Grid>
               <Grid>
@@ -119,11 +121,27 @@ const Login = () => {
                   </Button>
                 </Stack>
               </Grid>
-              <Divider sx={{ my: 3 }}>or Sign in with Email</Divider>
+              <Divider sx={{ my: 3 }}>or Sign Up with Email</Divider>
               <form
                 noValidate
               //onSubmit={handleSubmit((data) => onHandleSubmit(data))}
               >
+                <TextField
+                  {...register("name")}
+                  //control={control}
+                  variant="outlined"
+                  //onChange={(v) => setForceError("")}
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="name"
+                  label="Name"
+                  name="name"
+                  autoComplete="Name"
+                  autoFocus
+                  size="small"
+                //icon={AccountCircleIcon}
+                />
                 <TextField
                   {...register("email")}
                   //control={control}
@@ -157,6 +175,22 @@ const Login = () => {
                 //icon={HttpsIcon}
                 //forceError={forceError}
                 />
+                <TextField
+                  {...register("retypePassword")}
+                  //control={control}
+                  variant="outlined"
+                  //onChange={(v) => setForceError("")}
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="retypePassword"
+                  label="Re-enter Password"
+                  name="retypePassword"
+                  autoComplete="Retype-Password"
+                  autoFocus
+                  size="small"
+                //icon={AccountCircleIcon}
+                />
                 {/* 
                 {login === message ? <Typography variant="h6" component="span" color="primary"> {message} </Typography>
                 : null
@@ -166,13 +200,12 @@ const Login = () => {
                   item
                   container
                   justifyContent="space-between"
+                  flexDirection="row"
                   alignItems="center"
                   sx={{ marginTop: 1 }}
                 >
-                  <FormControlLabel required control={<Checkbox />} label="Remember me" />
-                  <Link href="/single-sign-on" color="primary">
-                    Forgot Password
-                  </Link>
+                  <FormControlLabel control={<Checkbox size="xsmall" />} label="I agree to thr Terms & condition" />
+                  <Typography variant="body2" color="green">Strong</Typography>
                 </Grid>
 
                 <Button
@@ -182,11 +215,8 @@ const Login = () => {
                   color="primary"
                   size="large"
                   sx={{ marginTop: 1, borderRadius: 3 }}
-
                 >
-
-                  Login
-
+                  Sign Up
                 </Button>
               </form>
             </Grid>
@@ -194,27 +224,21 @@ const Login = () => {
               <Typography
                 variant="body2"
                 color="text.secondary"
-                align="center"
+                align="left"
                 mb={3}
               >
-                {"Not registered yet? "}
-                <Link href="/sign-up" color="primary">
-                  Create an Account
+                {"Already have an account? "}
+                <Link href="/login" color="primary">
+                  Sign In
                 </Link>
               </Typography>
             </Grid>
           </Box>
-          <Link href="/single-sign-on"> 
-          <Button sx={{marginTop: 1}} fullWidth color="inherit" startIcon={<SendToMobileOutlinedIcon />}>
-            Single Sign-on (SSO)
-          </Button>         
-          </Link>
-
         </Grid>
       </Grid>
     </Grid>
   );
 };
 
-export default Login;
+export default SignUp;
 
